@@ -15,7 +15,7 @@ Es una web estática: solo archivos HTML, CSS y JavaScript. No hay que instalar 
 | `js/i18n.js` | Todos los textos en español y francés, y los ejemplos |
 | `js/app.js` | El funcionamiento: formulario, vista previa y PDF |
 | `js/config.js` | Los códigos de Google AdSense (vacíos hasta que te aprueben) |
-| `js/ads.js` | Coloca los anuncios en sus huecos |
+| `js/ads.js` | Carga AdSense y su aviso de cookies, y coloca los anuncios en sus huecos |
 
 ## Probarla en tu ordenador
 
@@ -26,3 +26,7 @@ Haz doble clic en `index.html` y se abrirá en tu navegador.
 1. En `js/i18n.js`, copia el bloque `es: { ... }`, pégalo debajo y cambia `es` por `ca`.
 2. Traduce los textos.
 3. En `index.html`, añade `<option value="ca">CA</option>` en el selector de idioma de arriba y `<option value="ca">Català</option>` en «Idioma del currículum».
+
+## Anuncios y aviso de cookies
+
+Mientras `adsenseClient` esté vacío en `js/config.js`, la web no carga nada de Google ni pone cookies. Al rellenarlo se carga AdSense, que muestra su propio aviso de cookies (el mensaje de «Normativa europea» que se configura en AdSense → Privacidad y mensajes). El enlace «Configurar cookies» del pie aparece solo y vuelve a abrir ese aviso.

@@ -7,11 +7,22 @@
   <meta name="robots" content="noindex">
   <link rel="icon" href="favicon.svg" type="image/svg+xml">
   <link rel="stylesheet" href="css/styles.css">
+  <script src="js/config.js" defer></script>
+  <script src="js/ads.js" defer></script>
   <style>
     .legal { max-width: 760px; margin: 0 auto; padding: 24px 16px 48px; }
     .legal section { background: var(--surface); border: 1px solid var(--border); border-radius: var(--radius); padding: 8px 20px 16px; margin-bottom: 20px; }
     .legal h1 { font-size: 1.5rem; }
     .legal h2 { font-size: 1.1rem; margin-top: 20px; }
+    .legal .table-wrap { overflow-x: auto; }
+    .legal table { width: 100%; border-collapse: collapse; font-size: 0.9rem; }
+    .legal th, .legal td { text-align: left; vertical-align: top; padding: 6px 8px; border-bottom: 1px solid var(--border); }
+    @media (max-width: 600px) {
+      .legal thead { display: none; }
+      .legal tr { display: block; padding: 8px 0; border-bottom: 1px solid var(--border); }
+      .legal td { display: block; padding: 2px 0; border: 0; }
+      .legal td:first-child { font-weight: 600; }
+    }
   </style>
 </head>
 <body>
@@ -21,25 +32,62 @@
   <main class="legal">
     <section lang="es" id="es">
       <h1>Privacidad y cookies</h1>
+      <p class="muted">Última actualización: 25 de octubre de 2026</p>
       <p><a href="#fr">Version française plus bas</a></p>
       <h2>Tus datos del currículum</h2>
       <p>Todo lo que escribes en el formulario se procesa únicamente en tu navegador. No se envía a ningún servidor y nosotros no podemos verlo. Para que no pierdas tu trabajo, se guarda en el almacenamiento local (<em>localStorage</em>) de tu propio navegador. Puedes borrarlo en cualquier momento con el botón «Borrar todo» o borrando los datos del sitio en tu navegador.</p>
       <h2>Publicidad</h2>
-      <p>La web es gratuita gracias a los anuncios de Google AdSense. Google y sus socios pueden usar cookies para mostrar anuncios y medir su rendimiento, siempre según el consentimiento que des en el aviso de cookies. Los anuncios nunca reciben el contenido de tu currículum. Más información: <a href="https://policies.google.com/technologies/ads?hl=es" rel="noopener">cómo usa Google las cookies en publicidad</a>.</p>
+      <p>La web es gratuita gracias a los anuncios de Google AdSense. Google y sus socios pueden usar cookies para mostrar anuncios y medir su rendimiento, pero en el Espacio Económico Europeo, el Reino Unido y Suiza solo lo hacen si das tu consentimiento en el aviso de cookies que aparece la primera vez que visitas la web. Si no aceptas, puedes seguir usando la web con normalidad: Google solo mostrará anuncios no personalizados. Los anuncios nunca reciben el contenido de tu currículum. Más información: <a href="https://policies.google.com/technologies/partner-sites?hl=es" rel="noopener">cómo usa Google los datos de los sitios que usan sus servicios</a>.</p>
+
+      <h2>Cookies y almacenamiento que usamos</h2>
+      <div class="table-wrap">
+      <table>
+        <thead><tr><th>Nombre</th><th>De quién</th><th>Para qué</th><th>Duración</th></tr></thead>
+        <tbody>
+          <tr><td><code>cvgratis:datos</code>, <code>cvgratis:idioma</code>, <code>cvgratis:sin-aviso-pdf</code> (almacenamiento local)</td><td>Esta web</td><td>Guardar tu currículum, el idioma elegido y si ya viste las instrucciones del PDF. Son necesarios para que la web funcione y no salen de tu navegador.</td><td>Hasta que los borres</td></tr>
+          <tr><td><code>FCCDCF</code>, <code>FCNEC</code></td><td>Google (aviso de cookies)</td><td>Recordar las opciones que elegiste en el aviso de cookies.</td><td>Hasta 13 meses</td></tr>
+          <tr><td><code>__gads</code>, <code>__gpi</code>, <code>__eoi</code>, <code>IDE</code> y similares</td><td>Google y sus socios publicitarios</td><td>Mostrar anuncios, limitar cuántas veces ves el mismo y medir su rendimiento. Solo con tu consentimiento.</td><td>Hasta 13 meses</td></tr>
+        </tbody>
+      </table>
+      </div>
+
+      <h2>Cambiar o retirar tu consentimiento</h2>
+      <p>Puedes cambiar de opinión cuando quieras con el enlace «Configurar cookies» que hay al pie de la página. También puedes borrar las cookies desde los ajustes de tu navegador.</p>
+
       <h2>Tus derechos</h2>
       <p>Como no guardamos datos personales en ningún servidor, no hay datos tuyos que consultar o borrar por nuestra parte. Para cualquier duda, puedes escribirnos a: <strong>[correo de contacto pendiente]</strong>.</p>
     </section>
 
     <section lang="fr" id="fr">
       <h1>Confidentialité et cookies</h1>
+      <p class="muted">Dernière mise à jour : 25 octobre 2026</p>
       <h2>Les données de votre CV</h2>
       <p>Tout ce que vous saisissez dans le formulaire est traité uniquement dans votre navigateur. Rien n'est envoyé à un serveur et nous ne pouvons pas le voir. Pour ne pas perdre votre travail, les données sont enregistrées dans le stockage local (<em>localStorage</em>) de votre navigateur. Vous pouvez les effacer à tout moment avec le bouton « Tout effacer » ou en supprimant les données du site dans votre navigateur.</p>
       <h2>Publicité</h2>
-      <p>Le site est gratuit grâce aux annonces Google AdSense. Google et ses partenaires peuvent utiliser des cookies pour afficher des annonces et mesurer leurs performances, selon le consentement que vous donnez dans le bandeau cookies. Les annonces ne reçoivent jamais le contenu de votre CV. En savoir plus : <a href="https://policies.google.com/technologies/ads?hl=fr" rel="noopener">comment Google utilise les cookies publicitaires</a>.</p>
+      <p>Le site est gratuit grâce aux annonces Google AdSense. Google et ses partenaires peuvent utiliser des cookies pour afficher des annonces et mesurer leurs performances, mais dans l'Espace économique européen, au Royaume-Uni et en Suisse, uniquement si vous y consentez dans le bandeau cookies affiché lors de votre première visite. Si vous refusez, vous pouvez utiliser le site normalement : Google affichera seulement des annonces non personnalisées. Les annonces ne reçoivent jamais le contenu de votre CV. En savoir plus : <a href="https://policies.google.com/technologies/partner-sites?hl=fr" rel="noopener">comment Google utilise les données des sites qui utilisent ses services</a>.</p>
+
+      <h2>Cookies et stockage utilisés</h2>
+      <div class="table-wrap">
+      <table>
+        <thead><tr><th>Nom</th><th>Émetteur</th><th>Finalité</th><th>Durée</th></tr></thead>
+        <tbody>
+          <tr><td><code>cvgratis:datos</code>, <code>cvgratis:idioma</code>, <code>cvgratis:sin-aviso-pdf</code> (stockage local)</td><td>Ce site</td><td>Enregistrer votre CV, la langue choisie et si vous avez déjà vu les instructions du PDF. Indispensables au fonctionnement du site, ils ne quittent pas votre navigateur.</td><td>Jusqu'à ce que vous les effaciez</td></tr>
+          <tr><td><code>FCCDCF</code>, <code>FCNEC</code></td><td>Google (bandeau cookies)</td><td>Mémoriser vos choix dans le bandeau cookies.</td><td>Jusqu'à 13 mois</td></tr>
+          <tr><td><code>__gads</code>, <code>__gpi</code>, <code>__eoi</code>, <code>IDE</code> et similaires</td><td>Google et ses partenaires publicitaires</td><td>Afficher des annonces, limiter leur répétition et mesurer leurs performances. Uniquement avec votre consentement.</td><td>Jusqu'à 13 mois</td></tr>
+        </tbody>
+      </table>
+      </div>
+
+      <h2>Modifier ou retirer votre consentement</h2>
+      <p>Vous pouvez changer d'avis à tout moment avec le lien « Paramètres des cookies » en bas de la page. Vous pouvez aussi supprimer les cookies dans les réglages de votre navigateur.</p>
+
       <h2>Vos droits</h2>
       <p>Comme nous ne conservons aucune donnée personnelle sur un serveur, nous n'avons aucune donnée vous concernant à consulter ou à supprimer. Pour toute question : <strong>[adresse de contact à compléter]</strong>.</p>
     </section>
-    <p><a href="./">← Volver / Retour</a></p>
   </main>
+  <footer class="footer">
+    <p><a href="./">← Volver / Retour</a>
+      <button type="button" class="link-btn" data-cookie-settings hidden>Configurar cookies · Paramètres des cookies</button></p>
+  </footer>
 </body>
 </html>

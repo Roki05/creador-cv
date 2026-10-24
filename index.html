@@ -1,0 +1,183 @@
+<!doctype html>
+<html lang="es">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Crear currículum gratis online, sin registro | Descarga en PDF</title>
+  <meta name="description" content="Crea tu currículum gratis en minutos y descárgalo en PDF. Sin registro, sin tarjeta y sin cobros al descargar. Plantillas profesionales compatibles con ATS.">
+  <meta name="theme-color" content="#1f5f8b">
+  <link rel="icon" href="favicon.svg" type="image/svg+xml">
+  <link rel="stylesheet" href="css/styles.css">
+  <link rel="stylesheet" href="css/cv.css">
+  <script src="js/config.js" defer></script>
+  <script src="js/i18n.js" defer></script>
+  <script src="js/app.js" defer></script>
+  <script src="js/ads.js" defer></script>
+</head>
+<body>
+  <header class="topbar">
+    <a class="brand" href="./"><img src="favicon.svg" alt="" width="28" height="28"><span data-i18n="brand">Currículum Gratis</span></a>
+    <div class="topbar-actions">
+      <label class="visually-hidden" for="ui-lang">Idioma / Langue</label>
+      <select id="ui-lang" class="lang-select">
+        <option value="es">ES</option>
+        <option value="fr">FR</option>
+      </select>
+      <button type="button" class="btn btn-primary" id="btn-download" data-i18n="download">Descargar PDF</button>
+    </div>
+  </header>
+
+  <section class="hero">
+    <h1 data-i18n="heroTitle">Crea tu currículum gratis y descárgalo en PDF</h1>
+    <p data-i18n="heroText">Rellena el formulario, mira el resultado al momento y descárgalo. Sin trampas.</p>
+    <ul class="chips">
+      <li data-i18n="chipFree">100 % gratis</li>
+      <li data-i18n="chipNoSignup">Sin registro ni tarjeta</li>
+      <li data-i18n="chipPrivate">Tus datos no salen de tu navegador</li>
+    </ul>
+  </section>
+
+  <div class="tabs" role="tablist">
+    <button type="button" role="tab" id="tab-edit" aria-selected="true" data-i18n="tabEdit">Editar</button>
+    <button type="button" role="tab" id="tab-preview" aria-selected="false" data-i18n="tabPreview">Vista previa</button>
+  </div>
+
+  <main class="app" id="app">
+    <form class="editor" id="editor" autocomplete="on" onsubmit="return false">
+
+      <details class="card" open>
+        <summary data-i18n="settings">Diseño</summary>
+        <div class="row three">
+          <label><span data-i18n="template">Plantilla</span>
+            <select data-path="template">
+              <option value="clasica" data-i18n="tplClasica">Clásica</option>
+              <option value="moderna" data-i18n="tplModerna">Moderna</option>
+              <option value="compacta" data-i18n="tplCompacta">Compacta</option>
+            </select>
+          </label>
+          <label><span data-i18n="accent">Color</span>
+            <input type="color" data-path="accent" value="#1f5f8b">
+          </label>
+          <label><span data-i18n="cvLang">Idioma del currículum</span>
+            <select data-path="cvLang">
+              <option value="es">Español</option>
+              <option value="fr">Français</option>
+            </select>
+          </label>
+        </div>
+      </details>
+
+      <details class="card" open>
+        <summary data-i18n="secPersonal">Datos personales</summary>
+        <div class="row">
+          <label><span data-i18n="fName">Nombre y apellidos</span><input type="text" data-path="personal.name" autocomplete="name" data-i18n-ph="phName"></label>
+          <label><span data-i18n="fTitle">Puesto o profesión</span><input type="text" data-path="personal.title" autocomplete="organization-title" data-i18n-ph="phTitle"></label>
+          <label><span data-i18n="fEmail">Correo electrónico</span><input type="email" data-path="personal.email" autocomplete="email" data-i18n-ph="phEmail"></label>
+          <label><span data-i18n="fPhone">Teléfono</span><input type="tel" data-path="personal.phone" autocomplete="tel" data-i18n-ph="phPhone"></label>
+          <label><span data-i18n="fLocation">Ciudad</span><input type="text" data-path="personal.location" autocomplete="address-level2" data-i18n-ph="phLocation"></label>
+          <label><span data-i18n="fLink">LinkedIn o web</span><input type="text" data-path="personal.link" autocomplete="url" data-i18n-ph="phLink"></label>
+        </div>
+      </details>
+
+      <details class="card" open>
+        <summary data-i18n="secSummary">Perfil profesional</summary>
+        <textarea rows="4" data-path="summary" data-i18n-ph="phSummary" aria-label="Perfil"></textarea>
+      </details>
+
+      <details class="card" open>
+        <summary data-i18n="secExperience">Experiencia laboral</summary>
+        <div class="list" data-list="experience"></div>
+        <button type="button" class="btn btn-ghost" data-add="experience" data-i18n="addExperience">+ Añadir empleo</button>
+      </details>
+
+      <details class="card" open>
+        <summary data-i18n="secEducation">Formación</summary>
+        <div class="list" data-list="education"></div>
+        <button type="button" class="btn btn-ghost" data-add="education" data-i18n="addEducation">+ Añadir formación</button>
+      </details>
+
+      <details class="card" open>
+        <summary data-i18n="secSkills">Habilidades</summary>
+        <textarea rows="2" data-path="skills" data-i18n-ph="phSkills" aria-label="Habilidades"></textarea>
+      </details>
+
+      <details class="card" open>
+        <summary data-i18n="secLanguages">Idiomas</summary>
+        <div class="list" data-list="languages"></div>
+        <button type="button" class="btn btn-ghost" data-add="languages" data-i18n="addLanguage">+ Añadir idioma</button>
+        <datalist id="levels"></datalist>
+      </details>
+
+      <details class="card">
+        <summary data-i18n="secExtra">Otros datos</summary>
+        <textarea rows="2" data-path="extra" data-i18n-ph="phExtra" aria-label="Otros datos"></textarea>
+      </details>
+
+      <div class="tools">
+        <button type="button" class="btn btn-ghost" id="btn-example" data-i18n="example">Ver un ejemplo</button>
+        <button type="button" class="btn btn-ghost" id="btn-save" data-i18n="saveFile">Guardar copia</button>
+        <button type="button" class="btn btn-ghost" id="btn-open" data-i18n="openFile">Abrir copia</button>
+        <button type="button" class="btn btn-ghost btn-danger" id="btn-clear" data-i18n="clear">Borrar todo</button>
+        <input type="file" id="file-input" accept=".json,application/json" hidden>
+      </div>
+      <p class="saved-note" data-i18n="savedLocal">Guardado automáticamente en este navegador</p>
+    </form>
+
+    <section class="preview" aria-live="polite">
+      <div class="preview-bar">
+        <span id="page-count"></span>
+        <button type="button" class="btn btn-primary btn-small" id="btn-download-2" data-i18n="download">Descargar PDF</button>
+      </div>
+      <div class="preview-scroll">
+        <div class="page-holder" id="page-holder">
+          <div class="page" id="cv-page"></div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <!-- Anuncio 1: debajo de la herramienta, nunca dentro del editor -->
+  <aside class="ad-slot" data-ad-slot="bottom" hidden><span class="ad-label" data-i18n="ad">Publicidad</span></aside>
+
+  <section class="info">
+    <h2 data-i18n="howTitle">Cómo funciona</h2>
+    <div class="steps">
+      <div><h3 data-i18n="how1Title"></h3><p data-i18n="how1Text"></p></div>
+      <div><h3 data-i18n="how2Title"></h3><p data-i18n="how2Text"></p></div>
+      <div><h3 data-i18n="how3Title"></h3><p data-i18n="how3Text"></p></div>
+    </div>
+
+    <h2 data-i18n="faqTitle">Preguntas frecuentes</h2>
+    <details class="faq"><summary data-i18n="faq1Q"></summary><p data-i18n="faq1A"></p></details>
+    <details class="faq"><summary data-i18n="faq2Q"></summary><p data-i18n="faq2A"></p></details>
+    <details class="faq"><summary data-i18n="faq3Q"></summary><p data-i18n="faq3A"></p></details>
+    <details class="faq"><summary data-i18n="faq4Q"></summary><p data-i18n="faq4A"></p></details>
+  </section>
+
+  <!-- Anuncio 2: al final de la página -->
+  <aside class="ad-slot" data-ad-slot="footer" hidden><span class="ad-label" data-i18n="ad">Publicidad</span></aside>
+
+  <footer class="footer">
+    <p data-i18n="footerText">Hecho para ayudar a encontrar trabajo, sin trampas.</p>
+    <p><a href="privacidad.html" data-i18n="footerPrivacy">Privacidad y cookies</a></p>
+  </footer>
+
+  <dialog id="pdf-dialog">
+    <h2 data-i18n="modalTitle">Guarda tu currículum en PDF</h2>
+    <ol>
+      <li data-i18n="modalStep1"></li>
+      <li data-i18n="modalStep2"></li>
+      <li data-i18n="modalStep3"></li>
+    </ol>
+    <p class="muted" data-i18n="modalMobile"></p>
+    <label class="check"><input type="checkbox" id="pdf-skip"> <span data-i18n="modalSkip">No volver a mostrar</span></label>
+    <div class="dialog-actions">
+      <button type="button" class="btn btn-ghost" id="pdf-cancel" data-i18n="modalCancel">Cancelar</button>
+      <button type="button" class="btn btn-primary" id="pdf-ok" data-i18n="modalOk">Continuar</button>
+    </div>
+  </dialog>
+
+  <!-- Copia del currículum que se usa solo al imprimir / guardar en PDF -->
+  <div id="print-root"></div>
+</body>
+</html>

@@ -104,6 +104,7 @@ window.I18N = {
       faq4A: "De momento no, porque las fotos suelen dar problemas con los programas de selección. Lo añadiremos como opción más adelante.",
       ad: "Publicidad",
       footerPrivacy: "Privacidad y cookies",
+      footerCookies: "Configurar cookies",
       footerText: "Hecho para ayudar a encontrar trabajo, sin trampas."
     },
     cv: {
@@ -221,6 +222,7 @@ window.I18N = {
       faq4A: "Pas pour l'instant, car les photos posent souvent problème aux logiciels de recrutement. Nous l'ajouterons plus tard en option.",
       ad: "Publicité",
       footerPrivacy: "Confidentialité et cookies",
+      footerCookies: "Paramètres des cookies",
       footerText: "Fait pour aider à trouver un emploi, sans piège."
     },
     cv: {

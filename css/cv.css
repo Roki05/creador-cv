@@ -1,0 +1,79 @@
+/* Plantillas del currículum. Las tres usan una sola columna, texto real y
+   fuentes estándar para que los programas de selección (ATS) las lean bien. */
+
+.cv {
+  --accent: #1f5f8b;
+  color: #1a1a1a;
+  padding: 18mm 18mm 16mm;
+  font-size: 10.5pt;
+  line-height: 1.4;
+  font-family: Arial, Helvetica, sans-serif;
+  -webkit-print-color-adjust: exact; print-color-adjust: exact;
+}
+.cv a { color: inherit; text-decoration: none; }
+.cv h1, .cv h2, .cv h3, .cv p, .cv ul { margin: 0; }
+.cv ul { padding-left: 1.2em; }
+.cv li { margin: 1px 0; }
+.cv .is-empty { color: #b8bec6; }
+
+.cv-head { margin-bottom: 14px; }
+.cv-name { font-size: 24pt; line-height: 1.15; font-weight: 700; }
+.cv-title { font-size: 12pt; margin-top: 2px; color: var(--accent); }
+.cv-contact { margin-top: 6px; font-size: 9.5pt; color: #444; }
+.cv-contact .sep { color: #aaa; }
+
+.cv-sec { margin-top: 12px; }
+.cv-sec > h2 {
+  font-size: 11pt; text-transform: uppercase; letter-spacing: 0.06em;
+  color: var(--accent); margin-bottom: 6px;
+  break-after: avoid; page-break-after: avoid;
+}
+.cv-sec > p, .cv-sec > ul { margin-bottom: 2px; }
+.cv-sec > p + p { margin-top: 3px; }
+
+.cv-entry { margin-bottom: 9px; break-inside: avoid; page-break-inside: avoid; }
+.cv-entry-head { display: flex; justify-content: space-between; align-items: baseline; gap: 12px; }
+.cv-entry h3 { font-size: 10.8pt; font-weight: 700; }
+.cv-date { flex-shrink: 0; font-size: 9.5pt; color: #555; white-space: nowrap; }
+.cv-org { font-style: italic; color: #333; }
+.cv-desc { margin-top: 3px; }
+.cv-desc p + p { margin-top: 2px; }
+.cv-skills .sep { color: #999; }
+.cv-langs { list-style: none; padding: 0 !important; display: flex; flex-wrap: wrap; gap: 2px 18px; }
+
+/* ---------- Clásica: serif, nombre centrado, líneas finas ---------- */
+.tpl-clasica { font-family: Georgia, "Times New Roman", Times, serif; }
+.tpl-clasica .cv-head { text-align: center; padding-bottom: 10px; border-bottom: 1.5px solid var(--accent); }
+.tpl-clasica .cv-title { color: #333; font-style: italic; }
+.tpl-clasica .cv-sec > h2 { color: var(--accent); border-bottom: 0.5px solid #c9c9c9; padding-bottom: 2px; font-size: 10.5pt; }
+
+/* ---------- Moderna: sans-serif, banda de color en el nombre ---------- */
+.tpl-moderna .cv-head { border-left: 5px solid var(--accent); padding-left: 12px; }
+.tpl-moderna .cv-name { font-size: 26pt; letter-spacing: -0.01em; }
+.tpl-moderna .cv-title { font-weight: 600; }
+.tpl-moderna .cv-sec > h2 { display: flex; align-items: center; gap: 8px; }
+.tpl-moderna .cv-sec > h2::after { content: ""; flex: 1; height: 1.5px; background: var(--accent); opacity: 0.35; }
+.tpl-moderna .cv-org { font-style: normal; color: var(--accent); font-weight: 600; font-size: 10pt; }
+
+/* ---------- Compacta: más información en una página ---------- */
+.tpl-compacta { font-size: 9.6pt; line-height: 1.33; padding: 13mm 15mm 12mm; }
+.tpl-compacta .cv-head { display: flex; flex-wrap: wrap; align-items: baseline; column-gap: 12px; margin-bottom: 8px; padding-bottom: 6px; border-bottom: 2px solid var(--accent); }
+.tpl-compacta .cv-name { font-size: 19pt; }
+.tpl-compacta .cv-title { font-size: 11pt; margin: 0; }
+.tpl-compacta .cv-contact { flex-basis: 100%; margin-top: 3px; }
+.tpl-compacta .cv-sec { margin-top: 8px; }
+.tpl-compacta .cv-sec > h2 { font-size: 9.8pt; margin-bottom: 4px; }
+.tpl-compacta .cv-entry { margin-bottom: 6px; }
+.tpl-compacta .cv-entry h3 { font-size: 10pt; }
+.tpl-compacta .cv-org { display: inline; }
+
+/* ---------- Ajustes de impresión ---------- */
+.print-wrap { width: 100%; border-collapse: collapse; }
+.print-wrap td { padding: 0; }
+@media print {
+  .print-space { height: 12mm; }
+  /* Los márgenes de arriba/abajo los ponen .print-space en cada hoja */
+  #print-root .cv { padding-top: 0; padding-bottom: 0; }
+  #print-root .cv-head { margin-top: 6mm; }
+  .tpl-compacta.cv { padding-top: 0; }
+}

@@ -9,11 +9,15 @@ Es una web estática: solo archivos HTML, CSS y JavaScript. No hay que instalar 
 | Archivo | Para qué sirve |
 | --- | --- |
 | `index.html` | La página principal (formulario, vista previa, preguntas frecuentes) |
+| `carta.html` | El creador de cartas de presentación (usa los datos del currículum) |
 | `privacidad.html` | Política de privacidad y cookies (ES/FR) |
 | `css/styles.css` | Aspecto de la web |
 | `css/cv.css` | Las tres plantillas del currículum (Clásica, Moderna, Compacta) |
 | `js/i18n.js` | Todos los textos en español y francés, y los ejemplos |
 | `js/app.js` | El funcionamiento: formulario, vista previa y PDF |
+| `js/carta.js` | El funcionamiento de la carta de presentación |
+| `js/carta-i18n.js` | Los textos de la carta en español y francés, y los ejemplos |
+| `css/carta.css` | Aspecto de la carta de presentación |
 | `js/config.js` | Los códigos de Google AdSense (vacíos hasta que te aprueben) |
 | `js/ads.js` | Coloca los anuncios en sus huecos |
 
@@ -24,5 +28,5 @@ Haz doble clic en `index.html` y se abrirá en tu navegador.
 ## Añadir un idioma (por ejemplo, catalán)
 
 1. En `js/i18n.js`, copia el bloque `es: { ... }`, pégalo debajo y cambia `es` por `ca`.
-2. Traduce los textos.
-3. En `index.html`, añade `<option value="ca">CA</option>` en el selector de idioma de arriba y `<option value="ca">Català</option>` en «Idioma del currículum».
+2. Traduce los textos. Haz lo mismo en `js/carta-i18n.js` para la carta de presentación.
+3. En `index.html`, añade `<option value="ca">CA</option>` en el selector de idioma de arriba y `<option value="ca">Català</option>` en «Idioma del currículum». Repite lo mismo en `carta.html`.

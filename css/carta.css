@@ -1,0 +1,35 @@
+/* Estilos propios de la carta de presentación (se suman a styles.css y cv.css) */
+
+/* ---------- Formulario ---------- */
+.cv-note {
+  margin: 0 0 12px; padding: 10px 14px;
+  background: #e3eef6; color: var(--primary-dark);
+  border-radius: var(--radius); font-size: 0.92rem; font-weight: 600;
+}
+.cv-note[hidden] { display: none; }
+.editor .card > .btn { margin-top: 12px; }
+.hint { margin: 10px 0 0; font-size: 0.85rem; color: var(--muted); }
+.tips { margin: 0; padding-left: 20px; color: var(--muted); }
+.tips li { margin-bottom: 6px; }
+#page-count.warn { color: var(--danger); font-weight: 600; }
+input[type="date"] {
+  width: 100%; padding: 10px 12px; min-height: 44px;
+  border: 1px solid var(--border); border-radius: 8px;
+  background: #fff; color: var(--text); font: inherit; font-size: 16px; font-weight: 400;
+}
+
+/* ---------- La carta ---------- */
+.letter { font-size: 11pt; line-height: 1.5; }
+.letter .cv-head { margin-bottom: 22px; }
+.letter .cl-to { margin: 0 0 18px; }
+.letter .cl-date { margin: 0 0 18px; text-align: right; }
+/* En Francia el destinatario va a la derecha, debajo del remitente */
+.letter-fr .cl-to { margin-left: 55%; }
+.letter .cl-subject { margin-bottom: 18px; }
+.letter .cl-greeting { margin-bottom: 12px; }
+.letter .cl-body p { margin: 0 0 10px; }
+.letter .cl-body ul { margin: 0 0 10px; }
+.letter .cl-closing { margin-top: 14px; }
+.letter .cl-sign { margin-top: 30px; font-weight: 700; }
+.letter .is-empty { color: #b8bec6; }
+.tpl-compacta.letter { font-size: 10.5pt; }

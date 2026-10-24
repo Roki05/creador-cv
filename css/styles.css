@@ -197,3 +197,12 @@ dialog li { margin-bottom: 6px; }
   body > * { display: none !important; }
   body > #print-root { display: block !important; }
 }
+
+/* ---------- Enlaces entre herramientas (Currículum / Carta) ---------- */
+.tool-nav { display: flex; flex-wrap: wrap; gap: 6px; margin-bottom: 14px; }
+.tool-nav a {
+  padding: 6px 14px; border-radius: 999px; border: 1px solid var(--border);
+  background: var(--surface); color: var(--primary); font-weight: 600; font-size: 0.92rem; text-decoration: none;
+}
+.tool-nav a:hover { border-color: var(--primary); }
+.tool-nav a[aria-current="page"] { background: var(--primary); border-color: var(--primary); color: #fff; }

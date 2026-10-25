@@ -197,3 +197,12 @@ dialog li { margin-bottom: 6px; }
   body > * { display: none !important; }
   body > #print-root { display: block !important; }
 }
+
+/* ---------- Ejemplos por profesión en la portada ---------- */
+.examples-home .related { display: flex; flex-wrap: wrap; gap: 8px; margin: 0 0 8px; padding: 0; list-style: none; }
+.examples-home .related a {
+  display: inline-block; padding: 6px 14px; border-radius: 999px; border: 1px solid var(--border);
+  background: var(--surface); text-decoration: none; font-weight: 600; font-size: 0.92rem;
+}
+.examples-home .related a:hover { border-color: var(--primary); }
+.examples-home[hidden] { display: none; }

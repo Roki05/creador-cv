@@ -6,6 +6,7 @@
   var STORAGE_KEY = "cvgratis:datos";
   var LANG_KEY = "cvgratis:idioma";
   var SKIP_KEY = "cvgratis:sin-aviso-pdf";
+  var PENDING_KEY = "cvgratis:ejemplo-pendiente"; // Lo deja js/ejemplo.js (páginas por profesión)
   var LANGS = Object.keys(window.I18N);
 
   // Campos de cada elemento de las listas repetibles.
@@ -155,6 +156,7 @@
     if (meta) meta.setAttribute("content", t("metaDescription"));
     $all("[data-i18n]").forEach(function (el) { el.textContent = t(el.getAttribute("data-i18n")); });
     $all("[data-i18n-ph]").forEach(function (el) { el.placeholder = t(el.getAttribute("data-i18n-ph")); });
+    $all("[data-only-lang]").forEach(function (el) { el.hidden = el.getAttribute("data-only-lang") !== uiLang; });
     $("#ui-lang").value = uiLang;
     $("#levels").innerHTML = t("levels").map(function (l) { return '<option value="' + esc(l) + '">'; }).join("");
     renderAllLists();
@@ -418,6 +420,25 @@
     renderPreview();
   }
 
+  function isDirty() {
+    return hasContent(state.personal) || clean(state.summary);
+  }
+
+  // Ejemplo elegido en una página por profesión: se carga una sola vez al abrir el editor.
+  function loadPendingExample() {
+    var raw = null;
+    try {
+      raw = window.sessionStorage.getItem(PENDING_KEY);
+      window.sessionStorage.removeItem(PENDING_KEY);
+    } catch (e) { return; }
+    if (!raw) return;
+    var ex;
+    try { ex = JSON.parse(raw); } catch (e) { return; }
+    if (!ex || typeof ex !== "object" || !ex.personal) return;
+    if (isDirty() && !confirm(t("confirmExample"))) return;
+    setState(normalize(ex));
+  }
+
   // ---------- Pestañas en el móvil ----------
   function showTab(which) {
     var preview = which === "preview";
@@ -435,6 +456,7 @@
     applyUI();
     fillFields();
     renderPreview();
+    loadPendingExample();
 
     var form = $("#editor");
     form.addEventListener("input", onInput);
@@ -461,8 +483,7 @@
     });
 
     $("#btn-example").addEventListener("click", function () {
-      var dirty = hasContent(state.personal) || clean(state.summary);
-      if (dirty && !confirm(t("confirmExample"))) return;
+      if (isDirty() && !confirm(t("confirmExample"))) return;
       var ex = JSON.parse(JSON.stringify(window.CV_EXAMPLES[uiLang] || window.CV_EXAMPLES.es));
       ex.template = state.template; ex.accent = state.accent; ex.cvLang = uiLang;
       setState(normalize(ex));
